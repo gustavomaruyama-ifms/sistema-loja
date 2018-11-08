@@ -29,6 +29,11 @@ public class UFCRUD extends GenericCRUD<UF> {
     }
 
     @Override
+    public void setSize(int width, int height) {
+        super.setSize(800, 600);
+    }
+    
+    @Override
     protected JPanel criarFormulario() {
         formulario = new UFFormulario();
         return formulario;

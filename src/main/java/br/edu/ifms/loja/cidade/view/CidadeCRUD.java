@@ -33,6 +33,11 @@ public class CidadeCRUD extends GenericCRUD<Cidade>{
         carregarComboBoxUF();
     }
     
+    @Override
+    public void setSize(int width, int height) {
+        super.setSize(800, 600);
+    }
+    
     private void carregarComboBoxUF(){
         List<UF> ufs = ufBO.listarTodos();
         formulario.carregarComboBoxUF(ufs);
