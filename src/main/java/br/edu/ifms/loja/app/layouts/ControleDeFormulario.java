@@ -40,6 +40,10 @@ public class ControleDeFormulario {
             JSlider.class,
             JTree.class
     );
+    
+    public void trimmer(){
+        
+    }
 
     /**
      * Percorre um JPanel que represente um formulário e habilita a edição dos

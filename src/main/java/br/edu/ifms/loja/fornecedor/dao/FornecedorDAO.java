@@ -7,6 +7,7 @@ public class FornecedorDAO extends GenericDAO<Fornecedor> {
     
     public FornecedorDAO() {
         super(Fornecedor.class);
+        inserir(new Fornecedor());
     }
     
 }

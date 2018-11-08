@@ -6,6 +6,7 @@ import java.util.List;
 /**
  *
  * @author Gustavo
+ * @param <T>
  */
 public class GenericBO<T> {
 

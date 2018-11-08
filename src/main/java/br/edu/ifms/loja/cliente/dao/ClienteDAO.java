@@ -9,6 +9,7 @@ public class ClienteDAO extends GenericDAO<Cliente> {
 
     public ClienteDAO() {
         super(Cliente.class);
+        inserir(new Cliente());
     }
 
     public List<Cliente> buscarPorCpf(String cpf) {
