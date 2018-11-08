@@ -1,4 +1,6 @@
-<h3>Instruções</h3>
+## Sistema didático
+Projeto para aprendizagem de Linguagem de Programação
+## Instruções
 1 - Criar banco de dados loja-dbase;
 <br/>
 2 - Entrar na pasta lib e copiar a pasta towel;
