@@ -10,12 +10,6 @@ public class ClienteBO extends GenericBO<Cliente>{
 
     private ClienteDAO daoCliente;
     
-    public static void main(String[] args) {
-        Cliente[] clientes = new Cliente[40];
-        
-        
-    }
-
     public ClienteBO() throws SQLException {
         super(Cliente.class);
         daoCliente = new ClienteDAO();

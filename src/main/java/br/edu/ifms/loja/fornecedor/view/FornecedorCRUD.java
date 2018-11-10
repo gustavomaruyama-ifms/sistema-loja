@@ -23,10 +23,10 @@ public class FornecedorCRUD extends GenericCRUD<Fornecedor> {
     
     private Fornecedor fornencedor;
     private FornecedorBO fornecedorBO;
-    private FornecedorFormulario formularioFornecedor2;
+    private FornecedorFormulario formularioFornecedor;
     
     public FornecedorCRUD(Frame parent, boolean modal) {
-        super(parent, modal, Fornecedor.class, new String[]{"id", "nome", "cnpj"});
+        super(parent, modal, Fornecedor.class, new String[]{"id", "nome", "cnpj","cidade","cidade.uf.sigla:UF"});
         
         try {
             fornecedorBO = new FornecedorBO();
@@ -43,20 +43,22 @@ public class FornecedorCRUD extends GenericCRUD<Fornecedor> {
     
     @Override
     protected JPanel criarFormulario() {
-        formularioFornecedor2 = new FornecedorFormulario();
-        return formularioFornecedor2;
+        formularioFornecedor = new FornecedorFormulario();
+        return formularioFornecedor;
     }
     
     @Override
     protected void camposParaObjeto() {
-        fornencedor.setNome(formularioFornecedor2.getCampoNome().getText());
-        fornencedor.setCnpj(formularioFornecedor2.getCampoCNPJ().getText());   
+        fornencedor.setNome(formularioFornecedor.getCampoNome().getText());
+        fornencedor.setCnpj(formularioFornecedor.getCampoCNPJ().getText());   
+        fornencedor.setCidade(formularioFornecedor.getComboBoxUFCidade().getSelectedCidade());
     }
     
     @Override
     protected void objetoParaCampos() {
-        formularioFornecedor2.getCampoCNPJ().setText(fornencedor.getCnpj());
-        formularioFornecedor2.getCampoNome().setText(fornencedor.getNome());
+        formularioFornecedor.getCampoCNPJ().setText(fornencedor.getCnpj());
+        formularioFornecedor.getCampoNome().setText(fornencedor.getNome());
+        formularioFornecedor.getComboBoxUFCidade().setSelectedCidade(fornencedor.getCidade());
     }
     
     @Override

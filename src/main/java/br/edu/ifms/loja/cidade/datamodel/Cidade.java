@@ -55,4 +55,9 @@ public class Cidade {
         this.uf = uf;
     }
 
+    @Override
+    public String toString() {
+        return nome;
+    }
+
 }

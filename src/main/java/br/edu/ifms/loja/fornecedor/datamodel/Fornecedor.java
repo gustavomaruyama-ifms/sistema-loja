@@ -1,10 +1,12 @@
 package br.edu.ifms.loja.fornecedor.datamodel;
 
+import br.edu.ifms.loja.cidade.datamodel.Cidade;
 import com.towel.el.annotation.Resolvable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Fornecedor {
@@ -17,6 +19,17 @@ public class Fornecedor {
     private String nome;
     @Resolvable(colName = "CNPJ")
     private String cnpj;
+    @Resolvable(colName = "Cidade")
+    @ManyToOne
+    private Cidade cidade;
+
+    public Cidade getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
+    }
 
     public String getCnpj() {
         return cnpj;

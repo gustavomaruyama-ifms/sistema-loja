@@ -8,6 +8,7 @@ package br.edu.ifms.loja.cidade.bo;
 import br.edu.ifms.loja.app.bo.GenericBO;
 import br.edu.ifms.loja.cidade.dao.CidadeDAO;
 import br.edu.ifms.loja.cidade.datamodel.Cidade;
+import java.util.List;
 
 /**
  *
@@ -18,5 +19,10 @@ public class CidadeBO extends GenericBO<Cidade>{
 
     public CidadeBO() {
         super(Cidade.class);
+        cidadeDAO = new CidadeDAO();
     }  
+    
+    public List<Cidade> listarCidadesPorIdUF(Long idUF){
+        return cidadeDAO.listarCidadesPorIdUF(idUF);
+    }
 }

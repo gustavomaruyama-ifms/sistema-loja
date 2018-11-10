@@ -7,7 +7,9 @@ package br.edu.ifms.loja.cidade.dao;
 
 import br.edu.ifms.loja.app.dao.GenericDAO;
 import br.edu.ifms.loja.cidade.datamodel.Cidade;
+import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 /**
  *
@@ -20,6 +22,17 @@ public class CidadeDAO extends GenericDAO<Cidade> {
     public CidadeDAO() {
         super(Cidade.class);
         em = getEntityManager();
+    }
+    
+    public List<Cidade> listarCidadesPorIdUF(Long idUF){
+        StringBuilder sb = new StringBuilder();
+        sb.append("SELECT c ");
+        sb.append("FROM Cidade c ");
+        sb.append("WHERE c.uf.id = :idUF");
+        
+        return em.createQuery(sb.toString())
+                .setParameter("idUF", idUF)
+                .getResultList();
     }
 
 }

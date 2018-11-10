@@ -5,6 +5,8 @@
  */
 package br.edu.ifms.loja.fornecedor.view;
 
+import br.edu.ifms.loja.app.components.ComboBoxUFCidade;
+import java.awt.BorderLayout;
 import javax.swing.JTextField;
 
 /**
@@ -16,8 +18,13 @@ public class FornecedorFormulario extends javax.swing.JPanel {
     /**
      * Creates new form FormularioFornecedor2
      */
+    private ComboBoxUFCidade comboBoxUFCidade;
+            
     public FornecedorFormulario() {
         initComponents();
+        comboBoxUFCidade = new ComboBoxUFCidade();
+        painelComboBox.setLayout(new BorderLayout());
+        painelComboBox.add(comboBoxUFCidade,BorderLayout.CENTER);
     }
 
     public JTextField getCampoCNPJ() {
@@ -49,6 +56,7 @@ public class FornecedorFormulario extends javax.swing.JPanel {
         campoNome = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         campoCNPJ = new javax.swing.JTextField();
+        painelComboBox = new javax.swing.JPanel();
 
         jLabel1.setText("Nome:");
 
@@ -61,12 +69,15 @@ public class FornecedorFormulario extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(campoCNPJ)
-                    .addComponent(campoNome, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE))
+                    .addComponent(painelComboBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(campoCNPJ)
+                            .addComponent(campoNome, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -80,7 +91,9 @@ public class FornecedorFormulario extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(campoCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addComponent(painelComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -90,5 +103,14 @@ public class FornecedorFormulario extends javax.swing.JPanel {
     private javax.swing.JTextField campoNome;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel painelComboBox;
     // End of variables declaration//GEN-END:variables
+
+    public ComboBoxUFCidade getComboBoxUFCidade() {
+        return comboBoxUFCidade;
+    }
+
+    public void setComboBoxUFCidade(ComboBoxUFCidade comboBoxUFCidade) {
+        this.comboBoxUFCidade = comboBoxUFCidade;
+    }
 }

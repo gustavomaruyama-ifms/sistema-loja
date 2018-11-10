@@ -17,7 +17,7 @@ public class ClienteCRUD extends GenericCRUD<Cliente> {
     private ClienteFormulario formularioCliente;
 
     public ClienteCRUD(Frame parent, boolean modal) {
-        super(parent, modal, Cliente.class, new String[]{"id", "nome", "email"});
+        super(parent, modal, Cliente.class, new String[]{"id", "nome", "email", "cidade","cidade.uf.sigla:UF"});
 
         try {
             clienteBO = new ClienteBO();
@@ -48,6 +48,7 @@ public class ClienteCRUD extends GenericCRUD<Cliente> {
         cliente.setTelefone(formularioCliente.getCampoTelefone().getText());
         cliente.setEndereco(formularioCliente.getCampoEndereco().getText());
         cliente.setNumero(formularioCliente.getCampoNumero().getText());
+        cliente.setCidade(formularioCliente.getComboBoxUFCidade().getSelectedCidade());
     }
 
     @Override
@@ -58,6 +59,7 @@ public class ClienteCRUD extends GenericCRUD<Cliente> {
         formularioCliente.getCampoTelefone().setText(cliente.getTelefone());
         formularioCliente.getCampoEndereco().setText(cliente.getEndereco());
         formularioCliente.getCampoNumero().setText(cliente.getNumero());
+        formularioCliente.getComboBoxUFCidade().setSelectedCidade(cliente.getCidade());
     }
 
     @Override

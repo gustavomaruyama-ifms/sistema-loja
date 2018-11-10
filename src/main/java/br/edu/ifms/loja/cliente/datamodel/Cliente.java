@@ -1,13 +1,16 @@
 package br.edu.ifms.loja.cliente.datamodel;
 
+import br.edu.ifms.loja.cidade.datamodel.Cidade;
 import com.towel.el.annotation.Resolvable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Cliente {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Resolvable(colName = "ID")
@@ -24,7 +27,10 @@ public class Cliente {
     private String endereco;
     @Resolvable(colName = "Numero")
     private String numero;
-    
+    @ManyToOne
+    @Resolvable(colName = "Cidade")
+    private Cidade cidade;
+
     public Cliente() {
     }
 
@@ -83,4 +89,13 @@ public class Cliente {
     public void setNumero(String numero) {
         this.numero = numero;
     }
+
+    public Cidade getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
+    }
+
 }
